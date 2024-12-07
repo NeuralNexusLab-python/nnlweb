@@ -1,5 +1,4 @@
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -63,6 +62,9 @@
         <a href="https://koding.school/projects/gk4s8kg25" target="_blank">Jumping Ball</a>
         <a href="https://koding.school/projects/d5ms949d8" target="_blank">Water Ball</a>
         <a href="https://koding.school/projects/9ygs54m2d" target="_blank">Dino</a>
+    </div>
+    <div class="button-container">
+        <a href="https://neuralnexuslab.w3spaces.com/LetMeGoogleItForYou.html" target="_blank">let me google it for you!</a>
     </div>
     <p>Our Team</p>
     <div class="button-container">
