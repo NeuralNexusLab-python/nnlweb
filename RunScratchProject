@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scratch Project Embed</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        #inputContainer {
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            border: 2px solid white;
+            border-radius: 5px;
+            background: black;
+            color: white;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: white;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: gray;
+            color: white;
+        }
+
+        #iframeContainer {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        iframe {
+            border: none;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="inputContainer">
+        <h1>run scratch project</h1>
+        <p>input scratch project ID：</p>
+    </div>
+    <div id="input_bar" style="display: flex; align-items: center; gap: 10px;">
+    <p style="margin: 0;">scratch.mit.edu/projects/</p>
+    <input type="text" id="projectId" placeholder="project ID(like 1051154324)" style="flex: 1;">
+    <button onclick="generateIframe()">run the project!</button>
+</div>
+<p>made by NeuralNexusLab(<a href="https://scratch.mit.edu/users/chatRBT/" target="_blank">https://scratch.mit.edu/users/chatRBT/</a>)</p>
+
+
+    <div id="iframeContainer"></div>
+    <script>
+        function generateIframe() {
+            const projectId = document.getElementById("projectId").value;
+            const iframeContainer = document.getElementById("iframeContainer");
+            if (projectId) {
+                const iframeHtml = `
+                    <iframe src="https://scratch.mit.edu/projects/${projectId}/embed"
+                            allowtransparency="true" width="900" height="600" 
+                            scrolling="no" allowfullscreen></iframe>`;
+                iframeContainer.innerHTML = iframeHtml;
+                iframeContainer.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                alert("input project ID！");
+            }
+        }
+    </script>
+</body>
+</html>
