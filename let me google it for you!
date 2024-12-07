@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let me google it for you!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>let me google it for you!</h1>
+    <form onsubmit="handleInput(event)">
+        <label for="search-input">search</label>
+        <input type="text" id="search-input" placeholder="Type your query here..." required>
+        <button type="submit">Go</button>
+    </form>
+    <script>
+        function handleInput(event) {
+            event.preventDefault(); // 防止表單預設提交
+            const input = document.getElementById('search-input').value.trim();
+
+            if (input === "") {
+                alert("請輸入內容！");
+                return;
+            }
+
+            // 檢查是否包含 "chatIFT"
+            if (input.toLowerCase().includes("chatift")) {
+                window.open("https://pse.is/chatIFT-web", "_blank");
+                return;
+            }
+
+            // 檢查是否為網址
+            if (input.startsWith("http://") || input.startsWith("https://")) {
+                window.open(input, "_blank");
+                return;
+            }
+
+            // 如果以上條件都不符合，則執行 Google 搜尋
+            const url = "https://www.google.com/search?q=" + encodeURIComponent(input);
+            window.open(url, "_blank");
+        }
+    </script>
+</body>
+</html>
