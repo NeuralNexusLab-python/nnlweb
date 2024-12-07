@@ -55,7 +55,7 @@
     <h1>let me google it for you!</h1>
     <form onsubmit="handleInput(event)">
         <label for="search-input">search</label>
-        <input type="text" id="search-input" placeholder="Type your query here..." required>
+        <input type="text" id="search-input" placeholder="search things..." required>
         <button type="submit">Go</button>
     </form>
     <script>
@@ -64,13 +64,13 @@
             const input = document.getElementById('search-input').value.trim();
 
             if (input === "") {
-                alert("請輸入內容！");
+                alert("input something！");
                 return;
             }
 
             // 檢查是否包含 "chatIFT"
             if (input.toLowerCase().includes("chatift")) {
-                window.open("https://pse.is/chatIFT-web", "_blank");
+                window.open("https://neuralnexuslab.w3spaces.com/chatIFT.html", "_blank");
                 return;
             }
 
