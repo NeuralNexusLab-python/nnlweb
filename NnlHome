@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -70,6 +70,9 @@
     <div class="button-container">
         <a href="https://scratch.mit.edu/studios/35622842/" target="_blank">Our Team</a>
         <a href="https://scratch.mit.edu/users/chatRBT/projects/" target="_blank">All Project</a>
+    </div>
+    <div class="button-container">
+        <a href="https://neuralnexuslab.w3spaces.com/krunker.html" target="_blank">things I play: Krunker</a>
     </div>
     <p>[made by NeuralNexusLab, chatIFT team]</p>
     <script>
