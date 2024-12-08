@@ -1,5 +1,4 @@
  <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,14 +45,17 @@
     <p>Our Project</p>
     <div class="button-container">
         <a href="#" onclick="showIframe('https://scratch.mit.edu/projects/1051154324/embed')">chatIFT</a>
-        <a href="#" onclick="showIframe('https://scratch.mit.edu/projects/1104439669/embed')">Imge.I</a>
-        <a href="#" onclick="showIframe('https://scratch.mit.edu/projects/1107048122/embed')">OMEGA</a>
         <a href="https://neuralnexuslab.w3spaces.com/scratch.html" target="_blank">Run Scratch Project</a>
+        <a href="https://neuralnexuslab.w3spaces.com/ChatRoom" target="_blank">chat room</a>
     </div>
     <a href="showIframe('https://scratch.mit.edu/projects/1051154324/embed')"></a>
     <div id="iframe-container" style="margin: 20px auto; width: 545px; height: 450px;"></div>
     </div>
-    <p>Our HTML, Javascript, Python Project</p>
+    <p>Other cool Project</p>
+    <div class="button-container">
+        <a href="#" onclick="showIframe('https://scratch.mit.edu/projects/1104439669/embed')">Imge.I</a>
+        <a href="#" onclick="showIframe('https://scratch.mit.edu/projects/1107048122/embed')">OMEGA AI</a>
+    </div>
     <div class="button-container">
         <a href="https://neuralnexuslab.w3spaces.com/chatIFT.html" target="_blank">HTML chatIFT</a>
         <a href="https://koding.school/projects/yeys445n6" target="_blank">Greedy Snake</a>
@@ -74,7 +76,7 @@
     <div class="button-container">
         <a href="https://neuralnexuslab.w3spaces.com/krunker.html" target="_blank">things I play: Krunker</a>
     </div>
-    <p>[made by NeuralNexusLab, chatIFT team]</p>
+    <p>[made by NeuralNexusLab, chatIFT team, chatGPT]</p>
     <script>
         function showIframe(src) {
             const iframeContainer = document.getElementById('iframe-container');
