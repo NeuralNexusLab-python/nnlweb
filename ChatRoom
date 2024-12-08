@@ -1,0 +1,116 @@
+ <!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFT chat room</title>
+    <style>
+        #chatbox {
+            width: 1685px;
+            height: 685px;
+            border: 1px solid #ccc;
+            overflow-y: scroll;
+            margin-bottom: 10px;
+        }
+        #input {
+            width: 1685%;
+            padding: 10px;
+        }
+        #name-container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="name-container">
+        <h2>welcome to IFT chat room！</h2>
+        <input type="text" id="username" placeholder="input username" />
+        <button onclick="startChat()">start</button>
+    </div>
+
+    <div id="chat-container" style="display:none;">
+        <h3>IFT chat room_______________________________Refresh to sync</h3>
+        <div id="chatbox"></div>
+        <textarea id="input" placeholder="message..."></textarea>
+        <button onclick="sendMessage()">SEND MESSAGE</button>
+    </div>
+
+    <script>
+        // 設定聊天紀錄的過期時間（7天）
+        const EXPIRATION_TIME = 1 * 24 * 60 * 60 * 1000; // 7天，單位是毫秒
+
+        // 記錄當前用戶名稱
+        let currentUser = "";
+
+        // 檢查並清除過期的訊息
+        function checkMessageExpiration() {
+            const storedMessages = JSON.parse(localStorage.getItem("messages"));
+            const currentTime = new Date().getTime();
+            
+            if (storedMessages) {
+                const lastMessageTime = storedMessages[storedMessages.length - 1].timestamp;
+                if (currentTime - lastMessageTime > EXPIRATION_TIME) {
+                    localStorage.removeItem("messages");
+                }
+            }
+        }
+
+        // 初始化聊天界面
+        function startChat() {
+            const username = document.getElementById("username").value.trim();
+            if (username) {
+                currentUser = username;
+                document.getElementById("name-container").style.display = "none";
+                document.getElementById("chat-container").style.display = "block";
+                loadMessages();
+            } else {
+                alert("input correct username！");
+            }
+        }
+
+        // 加載聊天訊息
+        function loadMessages() {
+            const chatbox = document.getElementById("chatbox");
+            const storedMessages = JSON.parse(localStorage.getItem("messages")) || [];
+            
+            checkMessageExpiration();
+
+            // 顯示訊息
+            storedMessages.forEach(message => {
+                const messageElement = document.createElement("div");
+                messageElement.textContent = message.user + ": " + message.text;
+                chatbox.appendChild(messageElement);
+            });
+
+            chatbox.scrollTop = chatbox.scrollHeight; // 滾動到底部
+        }
+
+        // 發送訊息
+        function sendMessage() {
+            const input = document.getElementById("input").value.trim();
+            if (input) {
+                const message = {
+                    user: currentUser,
+                    text: input,
+                    timestamp: new Date().getTime()
+                };
+
+                // 儲存訊息到localStorage
+                const storedMessages = JSON.parse(localStorage.getItem("messages")) || [];
+                storedMessages.push(message);
+                localStorage.setItem("messages", JSON.stringify(storedMessages));
+
+                // 顯示訊息
+                const chatbox = document.getElementById("chatbox");
+                const messageElement = document.createElement("div");
+                messageElement.textContent = currentUser + ": " + input;
+                chatbox.appendChild(messageElement);
+
+                // 清空輸入框
+                document.getElementById("input").value = "";
+                chatbox.scrollTop = chatbox.scrollHeight; // 滾動到底部
+            }
+        }
+    </script>
+</body>
+</html>
