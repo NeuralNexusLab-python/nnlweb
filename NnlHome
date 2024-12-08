@@ -46,7 +46,7 @@
     <div class="button-container">
         <a href="#" onclick="showIframe('https://scratch.mit.edu/projects/1051154324/embed')">chatIFT</a>
         <a href="https://neuralnexuslab.w3spaces.com/scratch.html" target="_blank">Run Scratch Project</a>
-        <a href="https://neuralnexuslab.w3spaces.com/ChatRoom" target="_blank">chat room</a>
+        <a href="https://neuralnexuslab.w3spaces.com/ChatRoom.html" target="_blank">chat room</a>
     </div>
     <a href="showIframe('https://scratch.mit.edu/projects/1051154324/embed')"></a>
     <div id="iframe-container" style="margin: 20px auto; width: 545px; height: 450px;"></div>
